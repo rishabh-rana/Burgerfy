@@ -10,6 +10,14 @@ mongoose.connect(keys.mongoURI);
 app.set('view engine', 'ejs');
 app.use(passport.initialize());
 
+
+
+require('./routes/auth.js')(app);
+
+app.get('/api/message', (req,res)=> {
+  res.send('HI');
+})
+
 if (process.env.NODE_ENV==='production') {
   app.use(express.static("client/build"));
 
@@ -18,11 +26,5 @@ if (process.env.NODE_ENV==='production') {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-require('./routes/auth.js')(app);
-
-app.get('/api/message', (req,res)=> {
-  res.send('HI');
-})
 
 app.listen(process.env.PORT || 5000, process.env.IP);
