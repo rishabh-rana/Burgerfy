@@ -11,6 +11,8 @@ const reducer = (state= {ingredients : {salad:0,cheese:0,bacon:0,meat:0}, price 
     return {...state, ingredients : action.payload, price : price}
   }
 
+  
+
   return state;
 }
 

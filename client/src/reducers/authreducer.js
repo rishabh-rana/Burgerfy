@@ -9,7 +9,7 @@ const reducer =  (state = {token : localStorage.getItem('token'), name : "User"}
     return {...state, token : "false", name : "User"}
   }
   if(action.type==='getuser'){
-    console.log(action.payload.name);
+    
     return {...state, name : action.payload.name};
   }
 

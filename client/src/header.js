@@ -12,7 +12,7 @@ class header extends Component {
 
 
 if(this.props.login.token !== "false" && this.props.login.name === "User"){
-  console.log('fired')
+  
   this.props.getuser(this.props.login.token);
 }
 
@@ -25,7 +25,10 @@ if(this.props.login.token !== "false" && this.props.login.name === "User"){
     if (this.props.login.token !== "false") {
       content = (<ul className='navbar-nav'>
         <li className="nav-item ">
-          <a className="nav-link">{this.props.login.name}</a>
+          <a className="nav-link disabled">{this.props.login.name}</a>
+        </li>
+        <li className="nav-item ">
+          <Link className="nav-link" to='/cart'>Cart</Link>
         </li>
         <li className="nav-item ">
           <a className="nav-link" onClick={this.props.logout}>Logout</a>
@@ -44,6 +47,9 @@ if(this.props.login.token !== "false" && this.props.login.name === "User"){
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
+      <li className="nav-item ">
+        <Link className="nav-link" to="/store">Store</Link>
+      </li>
       <li className="nav-item ">
         <Link className="nav-link" to="/builder">Builder</Link>
       </li>

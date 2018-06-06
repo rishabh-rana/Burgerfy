@@ -3,16 +3,20 @@ const mongoose = require('mongoose');
 const app = express();
 const keys = require('./config/keys');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const googleStrat = require('passport-google-oauth20');
 require('./models/user');
+require('./models/orders');
 
 mongoose.connect(keys.mongoURI);
 app.set('view engine', 'ejs');
 app.use(passport.initialize());
 
+app.use(bodyParser.json());
 
 
 require('./routes/auth.js')(app);
+require('./routes/orderroutes.js')(app);
 
 app.get('/api/message', (req,res)=> {
   res.send('HI');

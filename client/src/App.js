@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Home from './components/home';
+import Cart from './components/cart.jsx';
+import Orders from './components/orders.jsx';
+import Store from './components/store/store.jsx';
 import Builder from './components/builder.jsx';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './header';
@@ -22,7 +25,9 @@ class App extends Component {
         <Header />
         <Route path='/' exact component={Home} />
         <Route path='/builder'  component={Builder} />
-        <Route path='/orders'  component={() => <div>Orders</div>} />
+        <Route path='/orders'  component={Orders} />
+        <Route path='/store'  component={Store} />
+        <Route path='/cart'  component={Cart} />
         </div>
       </BrowserRouter>
       </div>

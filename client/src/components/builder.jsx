@@ -9,9 +9,11 @@ class Builder extends Component {
 componentDidMount () {
   window.addHook();
   this.props.count();
+
 }
 
   render() {
+
 
 
     return (
@@ -45,12 +47,10 @@ componentDidMount () {
 
 
         <div className='BreadBottom'></div>
-        <button onClick={this.props.count}>Count</button>
-        <div>salad : {this.props.info.ingredients.salad}</div>
-        <div>bacon : {this.props.info.ingredients.bacon}</div>
-        <div>cheese : {this.props.info.ingredients.cheese}</div>
-        <div>meat : {this.props.info.ingredients.meat}</div>
+
+        <div>{this.props.info.ingredients.meat}</div>
         <div>Price: {this.props.info.price}</div>
+        <button onClick={() => this.props.addtocartcustom(this.props.info.ingredients, this.props.info.price)}>Add to Cart</button>
       </div>
       </div>
       </div>
