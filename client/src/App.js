@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Home from './components/home';
-import Cart from './components/cart.jsx';
+import Cart from './components/cart/Cart';
 import Orders from './components/orders.jsx';
 import Store from './components/store/store.jsx';
 import Builder from './components/builder.jsx';

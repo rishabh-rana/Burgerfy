@@ -16,7 +16,14 @@ const orderschema = new Schema ({
       price : Number
     }
   ],
-  price : Number
+  price : Number,
+  address : {
+    address : String,
+    city : String,
+    state : String,
+    pincode : Number,
+    phone : Number
+  }
 });
 
 mongoose.model('Order', orderschema);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import data from './data';
-import * as actions from '../actions/actions';
+import data from '../data';
+import * as actions from '../../actions/actions';
 
 
 const cart = (props) => {
@@ -18,17 +18,18 @@ const cart = (props) => {
       <div>CART</div>
 
     {props.cart.map(function(order){
-      return(<div key={order.code}>({order.quantity+1})  {data.burgers[order.code].name} - {data.burgers[order.code].ingredients} <button onClick={() => props.rmtocart(order.code)}>Delete</button></div>);
+      return(<div key={order.code}>({order.quantity+1})  {data.burgers[order.code].name} - {data.burgers[order.code].ingredients} </div>);
     })}
 
     {props.customcart.map(function(order){
-      return(<div key={order.description}>({order.quantity})  Custom - {order.description} <button onClick={() => props.rmtoccart(order.description)}>Delete</button></div>);
+      return(<div key={order.description}>({order.quantity})  Custom - {order.description} </div>);
     })}
 
     <div>{checkoutprice}</div>
-    <button onClick={() => props.postorder(props.cart, props.customcart, checkoutprice, props.token)}>Checkout</button>
+
+
     </div>
-  )
+  );
 }
 
 const mapstate = state => {

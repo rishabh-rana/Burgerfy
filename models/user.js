@@ -10,7 +10,13 @@ const userschema = new Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Order"
     }
-  ]
+  ],
+  address : [ {
+    address : String,
+    state : String,
+    city : String,
+    pincode : Number,
+    phone : Number  } ]
 });
 
 mongoose.model("User", userschema);

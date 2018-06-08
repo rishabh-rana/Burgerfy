@@ -6,8 +6,9 @@ export const loginSignup = () => {
   }
 }
 
-export const logout = () => {
+export const logout = (history) => {
   return async dispatch => {
+    history.push('/store');
     dispatch({type:"logout"})
   }
 }
@@ -53,6 +54,26 @@ export const rmtoccart = (code) => {
   }
 }
 
+export const cartbuttonclickedforward = () => {
+  return async dispatch => {
+    dispatch({type: 'cartbuttonclickedforward'});
+  }
+}
+
+export const cartbuttonclickedback = (history) => {
+  return async dispatch => {
+    history.goBack();
+    dispatch({type: 'cartbuttonclickedback'});
+  }
+}
+
+export const continue1 = () => {
+  return async dispatch => {
+
+    dispatch({type: 'continue1'});
+  }
+}
+
 export const addtocartcustom = (ingredients, price) => {
   return async dispatch => {
     let description = '';
@@ -67,10 +88,11 @@ export const addtocartcustom = (ingredients, price) => {
 }
 
 
-export const postorder = (cart, customcart, ttlprice, token) => {
+export const postorder = (cart, customcart, ttlprice,addr, token, history) => {
   return async dispatch => {
     // const res = await axios({method:"POST", url: '/api/order', headers: {'authorization': token }, data : {cart:cart, customcart: customcart, price:ttlprice}});
-    const res = await axios.post('/api/order', {cart:cart, customcart: customcart, price:ttlprice}, {headers : {'authorization' : token}} );
+    const res = await axios.post('/api/order', {cart:cart, customcart: customcart, price:ttlprice, address: addr}, {headers : {'authorization' : token}} );
+    history.replace('/orders');
     console.log(res.data);
   }
 }
