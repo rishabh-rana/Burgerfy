@@ -9,35 +9,86 @@ class Builder extends Component {
 componentDidMount () {
   window.addHook();
   this.props.count();
-
+  document.querySelector('#togglebutton').addEventListener('click', function() {
+    document.getElementsByClassName('togglemenu')[0].classList.toggle('hidemenu');
+    document.getElementsByClassName('togglemenu')[1].classList.toggle('hidemenu');
+  })
 }
 
   render() {
 
 
 
+
     return (
       <div className='container'>
         <div className='row'>
-      <div className='col-4'>
-        Tray
+
+          <div className='col-2'></div>
+          <div className='col-10'>
+            <div className='maintext'>
+              <div>Price: {this.props.info.price}</div>
+              <button
+                className='buttonaddtocart'
+                onClick={() => this.props.addtocartcustom(this.props.info.ingredients, this.props.info.price)}>
+                Add to Cart <i className="fas fa-shopping-cart"></i>
+              </button>
+
+            </div>
+          </div>
+
+      <div className='col-1 traymain hideit'>
+
         <ul className='trayofingred'>
-  <li className="draggable Salad">Salad(10)</li>
-  <li className="draggable Cheese">Cheese(20)</li>
-  <li className="draggable Bacon">Bacon(50)</li>
-  <li className="draggable Meat">Meat(60)</li>
-  <li className="draggable Onion">Onion(10)</li>
-  <li className="draggable Tomato">Tomato(10)</li>
-  <li className="draggable Cutlet">Cutlet(40)</li>
-  <li className="draggable Sauce">Sauce(5)</li>
-  <li className="draggable Mayo">Mayo(5)</li>
-  <li className="draggable Barbeque">Barbeque(10)</li>
+  <li className="draggable Salad"></li>
+  <li className="draggable Cheese"></li>
+  <li className="draggable Bacon"></li>
+  <li className="draggable Meat"></li>
+  <li className="draggable Onion"></li>
+
+
+</ul>
+      </div>
+      <div className='col-1 traymain hideit'>
+
+        <ul className='trayofingred'>
+
+  <li className="draggable Tomato"></li>
+  <li className="draggable Cutlet"></li>
+  <li className="draggable Sauce"></li>
+  <li className="draggable Mayo"></li>
+  <li className="draggable Barbeque"></li>
 
 </ul>
       </div>
 
-      <div className='col-8'>
-        <div className='BreadTop'>
+      <div className='col-2 traymain hideitopp'>
+
+        <ul className='trayofingred'>
+          <div className='togglemenu'>
+          <li className="draggable Salad"></li>
+          <li className="draggable Cheese"></li>
+          <li className="draggable Bacon"></li>
+          <li className="draggable Meat"></li>
+          <li className="draggable Onion"></li>
+          </div>
+          <div className ='togglemenu hidemenu'>
+  <li className="draggable Tomato"></li>
+  <li className="draggable Cutlet"></li>
+  <li className="draggable Sauce"></li>
+  <li className="draggable Mayo"></li>
+  <li className="draggable Barbeque"></li>
+  </div>
+  <li id='togglebutton'></li>
+
+</ul>
+      </div>
+
+
+
+      <div className='col-10'>
+
+        <div className='BreadTop burgerbody'>
           <div className='Seeds1'></div>
           <div className='Seeds2'></div>
         </div>
@@ -46,11 +97,11 @@ componentDidMount () {
           </ul>
 
 
-        <div className='BreadBottom'></div>
+        <div className='BreadBottom burgerbody'></div>
+        <div className='maintext' style={{textAlign:'center',color: "#343a40"}}>Drag ingredients to the Burger!</div>
 
-        <div>{this.props.info.ingredients.meat}</div>
-        <div>Price: {this.props.info.price}</div>
-        <button onClick={() => this.props.addtocartcustom(this.props.info.ingredients, this.props.info.price)}>Add to Cart</button>
+
+
       </div>
       </div>
       </div>

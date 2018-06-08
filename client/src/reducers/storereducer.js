@@ -60,6 +60,12 @@ const reducer = (state = {cart : [], customcart : []}, action) => {
     })
     return copy;
   }
+
+
+
+  if(action.type==='cleanslate'){
+    return {cart:[], customcart:[]};
+  }
   return state;
 }
 

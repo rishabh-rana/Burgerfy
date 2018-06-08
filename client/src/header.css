@@ -7,6 +7,21 @@
   border-radius: 100%;
   padding : 10px;
 }
+
+
+
+#topbar {
+  background: rgba(255,255,255,0.4) !important;
+
+}
+.extendmargin{
+  margin-bottom: 90px;
+}
+#navbar {
+  margin-bottom: 40px;
+}
+
+
 .hideitnav{
   display: none !important;
 }
@@ -52,7 +67,9 @@
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
+  z-index: 1000;
+  margin-bottom: 30px;
 }
 
 

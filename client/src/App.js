@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import Home from './components/home';
 import Cart from './components/cart/Cart';
 import Orders from './components/orders.jsx';
@@ -9,7 +9,11 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './header';
 import {connect} from 'react-redux';
 import * as actions from './actions/actions';
-window.axios = axios;
+
+
+
+
+
 
 class App extends Component {
   someMethod() {
@@ -19,18 +23,28 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+
+
+
       <BrowserRouter>
-        <div>
-        <Header />
+
+
+
+            <div>
+              <Header />
         <Route path='/' exact component={Home} />
         <Route path='/builder'  component={Builder} />
         <Route path='/orders'  component={Orders} />
         <Route path='/store'  component={Store} />
         <Route path='/cart'  component={Cart} />
         </div>
+
+
+
+
       </BrowserRouter>
-      </div>
+
+
 
 
 

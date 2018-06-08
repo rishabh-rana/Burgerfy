@@ -20,7 +20,7 @@ class Maincart extends Component {
   }
 
 continue = async(value) => {
-  const res = await axios.post('/api/saveaddress', value, {headers : {'authorization': this.props.token}});
+  await axios.post('/api/saveaddress', value, {headers : {'authorization': this.props.token}});
   this.setState({showsummary:true});
 }
 

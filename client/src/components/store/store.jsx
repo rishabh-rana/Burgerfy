@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Item from './item.jsx';
 import data from '../data';
+import './store.css'
 
 class Store extends Component {
   render() {
 
     return(
 
-      <div>
+      <div className='storediv'>
 
 
       {data.burgers.map(function(burger){

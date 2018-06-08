@@ -16,7 +16,8 @@ const userschema = new Schema({
     state : String,
     city : String,
     pincode : Number,
-    phone : Number  } ]
+    phone : Number
+    } ]
 });
 
 mongoose.model("User", userschema);

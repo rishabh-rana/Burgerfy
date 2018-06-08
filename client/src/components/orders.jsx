@@ -14,7 +14,7 @@ class Orders extends Component {
     if(this.state.orders === false){
       orders = await axios.get('/api/order', {headers : {'authorization' : this.props.token}});
 
-      this.setState({orders : orders.data});
+      this.setState({orders : orders.data.reverse()});
     }
 
   }

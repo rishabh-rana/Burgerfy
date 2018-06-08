@@ -19,6 +19,7 @@ window.onscroll = function() {myFunction()};
 // Get the navbar
 var navbar = document.getElementById("navbar");
 var brand = document.getElementById('brand');
+var topbar = document.getElementById('topbar');
 
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
@@ -28,8 +29,10 @@ function myFunction() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
     brand.classList.add('expandbrand');
+    topbar.classList.add('extendmargin');
   } else {
     navbar.classList.remove("sticky");
+    topbar.classList.remove('extendmargin');
     brand.classList.remove('expandbrand');
   }
 }
@@ -62,7 +65,6 @@ function myFunction() {
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           <Link className="dropdown-item" to="/orders">Orders</Link>
-          <Link to='/settings' className='dropdown-item'>Settings</Link>
           <div className="dropdown-divider"></div>
           <a className="dropdown-item" onClick={() => this.props.logout(this.props.history)}>Logout</a>
         </div>
@@ -74,10 +76,8 @@ function myFunction() {
       <li className="nav-item ">
         <Link className="nav-link" to='/orders'>Orders</Link>
       </li>
-      
-      <li className="nav-item ">
-        <Link className="nav-link" to='/settings'>Settings</Link>
-      </li>
+
+
       <li className="nav-item ">
         <a className="nav-link" onClick={() => this.props.logout(this.props.history)}>Logout</a>
       </li>
@@ -98,7 +98,8 @@ function myFunction() {
 
     return (
       <div>
-      <nav className="navbar navbar-expand navbar-light bg-light">
+
+      <nav className="navbar navbar-expand navbar-light bg-light headernavtop" id='topbar'>
         <div className='container'>
   <Link className="navbar-brand" to="/">Burgerfy</Link>
 

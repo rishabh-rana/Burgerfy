@@ -93,6 +93,7 @@ export const postorder = (cart, customcart, ttlprice,addr, token, history) => {
     // const res = await axios({method:"POST", url: '/api/order', headers: {'authorization': token }, data : {cart:cart, customcart: customcart, price:ttlprice}});
     const res = await axios.post('/api/order', {cart:cart, customcart: customcart, price:ttlprice, address: addr}, {headers : {'authorization' : token}} );
     history.replace('/orders');
+    dispatch({type:'cleanslate'});
     console.log(res.data);
   }
 }
