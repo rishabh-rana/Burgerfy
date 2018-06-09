@@ -174,7 +174,8 @@
     font-size: 18px;
   }
   .nn{
-    width: 80%;
+    
+    padding-right: 10px;
   }
   .gol {
     text-align: left;

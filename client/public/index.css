@@ -2,7 +2,9 @@
 
 body {
   overflow-x: hidden;
-  background: rgba(153, 255, 0,0.7)
+  background: rgba(153, 255, 0,0.4);
+  background: #ccbadc;
+  background: #ccccff
 }
 
 
