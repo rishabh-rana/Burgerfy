@@ -41,6 +41,12 @@ state = {
       addresses = <div className='subtext'>Please Enter a new Address</div>
     }
 
+    let savenewaddressbutton = <button type='submit' className='btn btn-md btn-success'>Add New Address</button>;
+
+    if(this.props.loadaddress === true){
+      savenewaddressbutton = <div className='spinnerdiv'><Spinner /></div>
+    }
+
   return(
 <div>
 
@@ -91,7 +97,7 @@ state = {
             className='form-control'
             />
 
-          <button type='submit' className='btn btn-md btn-success'>Add New Address</button>
+          {savenewaddressbutton}
 
         </form>
       </div>

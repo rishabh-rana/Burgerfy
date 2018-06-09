@@ -159,6 +159,9 @@
   .kk{
     padding-left: 0;
   }
+  .goll {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width : 450px){
@@ -174,11 +177,27 @@
     font-size: 18px;
   }
   .nn{
-    
+
     padding-right: 10px;
   }
   .gol {
     text-align: left;
+  }
+  .cartmainheader2{
+    font-size: 35px;
+  }
+  .jj {
+    font-size: 18px;
+
+  }
+  .col-3.jj{
+    text-align: center;
+  }
+  .singleordercart {
+    margin-bottom: 10px;
+  }
+  .cartmainheader{
+    font-size: 45px;
   }
 
 }

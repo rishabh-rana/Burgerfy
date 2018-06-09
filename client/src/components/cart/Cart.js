@@ -16,12 +16,14 @@ class Maincart extends Component {
     showaddress : false,
     nodelete : false,
     price:0,
-    chosen : null
+    chosen : null,
+    loadingnewaddress : false
   }
 
 continue = async(value) => {
+  this.setState({loadingnewaddress : true});
   await axios.post('/api/saveaddress', value, {headers : {'authorization': this.props.token}});
-  this.setState({showsummary:true});
+  this.setState({showsummary:true, loadingnewaddress : false});
 }
 
 storeprice = (price) => {
@@ -46,7 +48,7 @@ deleteaddress = async(id) => {
 
     let showaddress = null;
     if(this.state.showaddress && !this.state.showsummary){
-      showaddress = <Showaddress cont={this.continue} back={() => this.setState({showaddress:false, nodelete:false})} token={this.props.token} chooseaddress={this.chooseaddress} deleteaddress={this.deleteaddress}/>;
+      showaddress = <Showaddress cont={this.continue} back={() => this.setState({showaddress:false, nodelete:false})} token={this.props.token} chooseaddress={this.chooseaddress} deleteaddress={this.deleteaddress} loadaddress={this.state.loadingnewaddress}/>;
     }
 
     let showsummary = null;

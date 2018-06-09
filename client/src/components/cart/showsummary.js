@@ -9,7 +9,7 @@ import './cart.css';
    let address = null;
 if(props.chosen === null){
   address = (
-    <div className='selectaddress container gor '>
+    <div className='selectaddress container gor goll'>
       <div className='subtextpro'>Delivery Address</div>
       <strong>
     <div>{props.values.address}</div>
@@ -22,7 +22,7 @@ if(props.chosen === null){
   )
 } else {
   address = (
-    <div className='selectaddress container gor'>
+    <div className='selectaddress container gor goll'>
       <div className='subtextpro'>Delivery Address</div>
       <strong>
     <div>{props.chosen.address}</div>
@@ -37,18 +37,18 @@ if(props.chosen === null){
 }
 
 let cart = (
-  <div>
+  <div className='container'>
 
     <div className='row'>
-      <div className='col-9 subtextpro'>Item</div>
-      <div className='col-3 subtextpro gor'>Quantity</div>
+      <div className='col-7 subtextpro'>Item</div>
+      <div className='col-5 subtextpro gor'>Quantity</div>
     </div>
   {props.cart.map(function(order){
     return(
       <div key={order.code} className='row singleordercart qw'>
 
-        <div className='col-9 subtext'><strong>{data.burgers[order.code].name}</strong> : {data.burgers[order.code].ingredients}</div>
-        <div className='col-3 subtext gor'>{order.quantity+1}</div>
+        <div className='col-9 subtext jj'><strong>{data.burgers[order.code].name}</strong> : {data.burgers[order.code].ingredients}</div>
+        <div className='col-3 subtext gor jj'>{order.quantity+1}</div>
 
       </div>
     );
@@ -57,8 +57,8 @@ let cart = (
   {props.customcart.map(function(order){
     return(<div key={order.description} className='row singleordercart qw'>
 
-      <div className='col-9 subtext'><strong>Custom</strong> : {order.description}</div>
-      <div className='col-3 subtext gor'>{order.quantity}</div>
+      <div className='col-9 subtext jj'><strong>Custom</strong> : {order.description}</div>
+      <div className='col-3 subtext gor jj'>{order.quantity}</div>
 
     </div>);
   })}
@@ -78,7 +78,7 @@ if(props.chosen){
 
     <div className='container'>
       <div className='row'>
-        <div className='col-lg-8 col-12'>
+        <div className='col-lg-8 col-12 addmargin'>
           {cart}
         </div>
         <div className='col-lg-4 col-12 addmargin'>
