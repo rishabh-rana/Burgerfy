@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import data from '../data';
+import "./cart.css";
 import * as actions from '../../actions/actions';
 
 
@@ -18,12 +19,17 @@ const cart = (props) => {
 
 
 
-  let checkoutbutton = <button disabled>Login to Continue</button>;
+  let checkoutbutton = <button disabled className='cobutton'>Login to Continue</button>;
+
+    let disabled = false;
+    if(checkoutprice === 0){
+      disabled = true;
+    }
 
 
 
 if(props.token !== 'false'){
-  checkoutbutton = <button onClick={() => props.cont(checkoutprice)}>Continue</button>
+  checkoutbutton = <button onClick={() => props.cont(checkoutprice)} className='cobutton' disabled={disabled}>Continue</button>
 }
 if(props.token !== 'false' && props.btn === true){
   checkoutbutton = null;
@@ -31,19 +37,61 @@ if(props.token !== 'false' && props.btn === true){
 
   return (
     <div>
-      <div>CART</div>
+      <div className='cartmainheader'>Cart</div>
+
+      <div className='container splc'>
+        <div className='row addmargin'>
+          <div className ='col-5 cartsubheader '>Item</div>
+          <div className ='col-4 cartsubheader gor'>Quantity</div>
+          <div className ='col-2 cartsubheader gor'>Price</div>
+
+        </div>
+      </div>
+
+      <div className='container splc'>
 
     {props.cart.map(function(order){
-      return(<div key={order.code}>({order.quantity+1})  {data.burgers[order.code].name} - {data.burgers[order.code].ingredients} <button onClick={() => props.rmtocart(order.code)}>Delete</button></div>);
+      return(
+        <div key={order.code} className='row singleordercart'>
+          <div className='col-2 col-md-1 aa bb'><div style={{background:`url(${data.burgers[order.code].pic})`, backgroundSize:'cover', backgroundPosition : 'center'}} className='cartpic'/></div>
+          <div className='col-6 col-md-7 subtext'><strong>{data.burgers[order.code].name}</strong> <br /> {data.burgers[order.code].ingredients}</div>
+          <div className='col-1 subtext gor aa gol'>{order.quantity+1}</div>
+          <div className='col-2 subtext gor nn'>{data.burgers[order.code].price*(order.quantity+1)}</div>
+          <div className='col-1 subtext aa kk'><button onClick={() =>  props.rmtocart(order.code)}><i className="fas fa-times"></i></button></div>
+
+
+
+        </div>
+      );
     })}
+
+<hr />
 
     {props.customcart.map(function(order){
-      return(<div key={order.description}>({order.quantity})  Custom - {order.description} <button onClick={() => props.rmtoccart(order.description)}>Delete</button></div>);
+      return(<div key={order.description} className='row singleordercart'>
+        <div className='col-2 col-md-1 aa bb'><div className='customimg'></div></div>
+          <div className='col-6 col-md-7 subtext'><strong>Custom</strong> <br /> {order.description}</div>
+          <div className='col-1 subtext gor aa gol'>{order.quantity}</div>
+          <div className='col-2 subtext gor nn'>{order.price*(order.quantity)}</div>
+          <div className='col-1 subtext aa kk'><button onClick={() => props.rmtoccart(order.description)}><i className="fas fa-times"></i></button></div>
+
+      </div>
+    );
     })}
 
-    <div>{checkoutprice}</div>
+    <div className='row qwert'>
+      <div className='col-9 gor subtext abc'><strong>Total Price:</strong></div>
+      <div className='col-2 subtext gor abc'><strong>{checkoutprice}</strong></div>
 
-    {checkoutbutton}
+    </div>
+
+    <div className='cobtn'>{checkoutbutton}</div>
+
+    </div>
+
+
+
+
     </div>
   )
 }

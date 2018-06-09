@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import axios from 'axios';
+import Spinner from '../spinner/spinner';
+import './cart.css';
 
 class showaddress extends Component {
 
@@ -15,68 +17,90 @@ state = {
   }
 
   render() {
-    let addresses = <div>Loading..</div>;
+    let addresses = <div className='spinnerdiv'><Spinner /></div>;
     if(this.state.res !== null){
       addresses = (
         <div>
           {this.state.res.map((addr) => {
-            return <div key={addr._id}>
+            return <div key={addr._id} className='selectaddress'>
 
               <div>{addr.address}</div>
               <div>{addr.city}</div>
               <div>{addr.state}</div>
               <div>{addr.pincode}</div>
               <div>{addr.phone}</div>
-              <button onClick={() => this.props.chooseaddress(addr)}>Choose This address</button>
-              <button onClick={() => this.props.deleteaddress(addr._id)}>Delete</button>
+              <button  className='btn btn-md btn-success' onClick={() => this.props.chooseaddress(addr)}>Choose This address</button>
+              <button className='btn btn-md btn-danger' onClick={() => this.props.deleteaddress(addr._id)}>Delete</button>
+              <hr />
             </div>
           })}
         </div>
       )
     }
     if (this.state.res && this.state.res.length === 0){
-      addresses = <div>No addresses Stores please enter a new address</div>
+      addresses = <div className='subtext'>Please Enter a new Address</div>
     }
 
   return(
 <div>
 
-  <div>
-    <div>Select Address</div>
-    {addresses}
-  </div>
-    <form onSubmit={this.props.handleSubmit(this.props.cont)}>
-      <Field
-        name='address'
-        component='input'
-        className='form-control'
-        />
-      <Field
-        name='city'
-        component='input'
-        className='form-control'
-        />
-      <Field
-        name='state'
-        component='input'
-        className='form-control'
-        />
-      <Field
-        name='pincode'
-        component='input'
-        type='number'
-        className='form-control'
-        />
-      <Field
-        name='phone'
-        component='input'
-        type="number"
-        className='form-control'
-        />
-      <button onClick={this.props.back}>Back</button>
-      <button type='submit'>New Address</button>
+  <div className='cartmainheader2'>Select Delivery Address</div>
+  <hr className='addmargin'/>
+  <div className='container'>
+    <div className='row'>
+      <div className='col-12 col-md-6'>
+        {addresses}
+      </div>
+      <div className='col-12 col-md-6'>
+        <form onSubmit={this.props.handleSubmit(this.props.cont)}>
+          <Field
+            name='address'
+            component='input'
+            placeholder='Locality'
+            required
+            className='form-control'
+            />
+          <Field
+            name='city'
+            component='input'
+            required
+            placeholder='City'
+            className='form-control'
+            />
+          <Field
+            name='state'
+            component='input'
+            required
+            placeholder='State'
+            className='form-control'
+            />
+          <Field
+            name='pincode'
+            component='input'
+            required
+            placeholder='Pincode'
+            type='number'
+            className='form-control'
+            />
+          <Field
+            name='phone'
+            component='input'
+            required
+            type="number"
+            placeholder='Phone'
+            className='form-control'
+            />
 
-    </form>
+          <button type='submit' className='btn btn-md btn-success'>Add New Address</button>
+
+        </form>
+      </div>
+    </div>
+
+
+<div><button onClick={this.props.back} className='btn-md btn btn-warning butoon'>Back</button></div>
+  </div>
+
 
     </div>
   )

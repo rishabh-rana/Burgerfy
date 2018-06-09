@@ -124,6 +124,16 @@
   font-size: 19px;
   float:right;
   margin-top:5px;
+  cursor : pointer;
+}
+
+.buttonaddtocart:active{
+  background:#1564b2;
+  outline : none;
+}
+
+.buttonaddtocart:disabled{
+  background: #737373
 }
 .traymain {
 

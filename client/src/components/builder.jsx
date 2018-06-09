@@ -16,8 +16,11 @@ componentDidMount () {
 }
 
   render() {
+    let disabled = false;
 
-
+    if(this.props.info.price === 0){
+      disabled = true;
+    }
 
 
     return (
@@ -30,8 +33,10 @@ componentDidMount () {
               <div>Price: {this.props.info.price}</div>
               <button
                 className='buttonaddtocart'
+                disabled={disabled}
                 onClick={() => this.props.addtocartcustom(this.props.info.ingredients, this.props.info.price)}>
                 Add to Cart <i className="fas fa-shopping-cart"></i>
+
               </button>
 
             </div>

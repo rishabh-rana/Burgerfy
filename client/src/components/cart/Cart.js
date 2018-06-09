@@ -55,12 +55,12 @@ deleteaddress = async(id) => {
     }
 
     let currentorder = null;
-    if(!this.state.nodelete){
+    if(!this.state.nodelete && !this.state.showsummary){
       currentorder = <Currentorder cont={this.storeprice} btn={this.state.showaddress}/>
     }
 
 
-    if(this.state.nodelete){
+    if(this.state.nodelete && !this.state.showsummary){
       currentorder = <Showundeletableorder />
     }
 
