@@ -77,6 +77,20 @@
   width: 100%;
   height : 200px;
 }
+.spinnerdivm{
+  text-align: center;
+  width: 100%;
+  height : 800px;
+}
+
+.sdf {
+
+  margin-top: 10%;
+  margin-bottom: 75%;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
 
 .aaa{
   font-size: 25px;

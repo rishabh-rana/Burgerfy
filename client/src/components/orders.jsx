@@ -48,11 +48,11 @@ componentDidUpdate() {
 
   render() {
 
-let con = <div className='spinnerdiv'><Spinner /></div>
+let con = <div className='spinnerdivm'><Spinner /></div>
 if(this.props.token === "false"){
   con = <Redirect to='/store' />
 }
-console.log(this.state.orders);
+
 if(this.state.orders !== false){
   con = (<div className='container'>
 
@@ -123,7 +123,9 @@ if(this.state.orders !== false){
         </div>)
 }
 
-
+if(this.state.orders.length === 0){
+  con = <div className='sdf'>No Orders to show</div>
+}
 
     return (
 
