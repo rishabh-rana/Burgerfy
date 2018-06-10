@@ -1,9 +1,10 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 const home = () => {
   return (
 
-    <div>Home.</div>
+    <Redirect to='/store' />
   )
 }
 

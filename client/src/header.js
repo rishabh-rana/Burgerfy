@@ -46,7 +46,7 @@ function myFunction() {
       this.props.getuser(this.props.login.token);
     }
 
-    let cartbutton = null;
+
 
 
     let content = (<ul className='navbar-nav'>
@@ -87,11 +87,7 @@ function myFunction() {
 
     }
 
-    if(this.props.ui.cartbutton){
-      cartbutton = <div className='cartbutton' onClick={() => this.props.cartbuttonclickedback(this.props.history)}>Back</div>
-    } else {
-      cartbutton = <Link to='/cart' onClick={this.props.cartbuttonclickedforward}><div className='cartbutton' >Cart</div></Link>
-    }
+
 
 
 

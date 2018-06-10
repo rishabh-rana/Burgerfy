@@ -6,7 +6,7 @@ const reducer = (state = {cart : [], customcart : []}, action) => {
     copy.cart.forEach(function(order){
       if(order.code===action.payload){
         order.quantity ++;
-        console.log('retured from if');
+        
         trigger = false;
         return copy;
 
@@ -14,7 +14,7 @@ const reducer = (state = {cart : [], customcart : []}, action) => {
     });
     if(trigger){
       copy.cart.push({code : action.payload, quantity : 0});
-      console.log('returned from out');
+
       return copy;
     }
 

@@ -24,7 +24,7 @@ export const count = () => {
 export const getprotected = (token) => {
   return async dispatch => {
     const res = await axios({method:"GET", url: '/auth/protected', headers: {'authorization': token }});
-    console.log(res.data);
+
   }
 }
 
@@ -94,6 +94,6 @@ export const postorder = (cart, customcart, ttlprice,addr, token, history) => {
     const res = await axios.post('/api/order', {cart:cart, customcart: customcart, price:ttlprice, address: addr}, {headers : {'authorization' : token}} );
     history.replace('/orders');
     dispatch({type:'cleanslate'});
-    console.log(res.data);
+  
   }
 }

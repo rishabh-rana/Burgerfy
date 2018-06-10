@@ -54,7 +54,7 @@ module.exports = app => {
   app.post('/api/deleteaddress',requireAuth, (req,res)=> {
     User.findById(req.user.id, async function(err,founduser){
       founduser.address.forEach(async function(add){
-        console.log(add._id, req.body)
+        
         if(add.id == req.body.id){
           founduser.address.splice(founduser.address.indexOf(add), 1);
           await founduser.save();

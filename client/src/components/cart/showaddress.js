@@ -12,7 +12,7 @@ state = {
 
   async componentDidMount() {
     const res= await axios.get('/api/address', {headers: {'authorization': this.props.token}});
-    console.log(res.data);
+    
     this.setState({res : res.data.reverse()});
   }
 

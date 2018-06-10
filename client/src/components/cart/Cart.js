@@ -36,11 +36,11 @@ chooseaddress = addr => {
 }
 
 deleteaddress = async(id) => {
-  console.log(id)
+
   const res = await axios.post('/api/deleteaddress',{id :id}, {headers : {'authorization': this.props.token}});
   this.setState({showaddress:false});
   this.setState({showaddress:true});
-  console.log(res.data);
+
 }
 
 
