@@ -20,6 +20,11 @@ class App extends Component {
     // Force a render without state change...
     this.forceUpdate();
 }
+
+componentDidMount(){
+    var s = document.getElementById('spinner');
+    s.parentNode.removeChild(s);
+}
   render() {
 
     return (

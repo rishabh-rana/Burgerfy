@@ -35,9 +35,15 @@ if(props.token !== 'false' && props.btn === true){
   checkoutbutton = null;
 }
 
+let hrrr = <hr />;
+if(props.cart.length === 0){
+  hrrr = null;
+}
+
   return (
     <div>
       <div className='cartmainheader'>Cart</div>
+      <hr />
 
       <div className='container splc'>
         <div className='row addmargin'>
@@ -49,6 +55,8 @@ if(props.token !== 'false' && props.btn === true){
       </div>
 
       <div className='container splc'>
+
+        {hrrr}
 
     {props.cart.map(function(order){
       return(

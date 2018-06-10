@@ -136,6 +136,9 @@
   .kk {
     padding-left: 15px;
   }
+  .goll {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width : 767px){
@@ -148,6 +151,7 @@
   .kk {
     padding-left: 10px;
   }
+
 }
 
 
@@ -159,9 +163,7 @@
   .kk{
     padding-left: 0;
   }
-  .goll {
-    text-align: left;
-  }
+
 }
 
 @media only screen and (max-width : 450px){

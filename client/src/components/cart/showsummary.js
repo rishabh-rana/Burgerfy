@@ -63,11 +63,13 @@ let cart = (
     </div>);
   })}
 
+
+
   </div>
 );
-let butt = <button className='btn btn-lg btn-success' style={{float:'right'}} onClick={() => props.postorder(props.cart, props.customcart, props.price,props.values, props.token, props.history)}>Order</button>;
+let butt = <button className='btn btn-lg btn-success' style={{float:'right'}} onClick={() => props.postorder(props.cart, props.customcart, props.price,props.values, props.token, props.history)}>Order ({props.price})</button>;
 if(props.chosen){
-  butt = <button className='btn btn-lg btn-success' style={{float:'right'}} onClick={() => props.postorder(props.cart, props.customcart, props.price,props.chosen, props.token, props.history)}>Order</button>
+  butt = <button className='btn btn-lg btn-success' style={{float:'right'}} onClick={() => props.postorder(props.cart, props.customcart, props.price,props.chosen, props.token, props.history)}>Order ({props.price})</button>
 }
 
   return (
