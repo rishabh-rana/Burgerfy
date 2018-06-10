@@ -9,8 +9,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './header';
 import {connect} from 'react-redux';
 import * as actions from './actions/actions';
-
-
+import Footer from './footer';
 
 
 
@@ -42,6 +41,7 @@ componentDidMount(){
         <Route path='/orders'  component={Orders} />
         <Route path='/store'  component={Store} />
         <Route path='/cart'  component={Cart} />
+        <Footer />
         </div>
 
 

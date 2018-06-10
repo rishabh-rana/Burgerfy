@@ -107,7 +107,7 @@ function myFunction() {
 
     <ul className="navbar-nav mr-auto hideitnav">
       <li className="nav-item ">
-        <Link className="nav-link" to="/store">Store</Link>
+        <Link className="nav-link" to="/store">Menu</Link>
       </li>
       <li className="nav-item ">
         <Link className="nav-link" to="/builder">Builder</Link>
@@ -130,13 +130,13 @@ function myFunction() {
 
 <ul className="navbar-nav nav-expand-nav">
 <li className="nav-item nav-store">
-  <Link className="nav-link" to="/store">Store</Link>
+  <Link className="nav-link" to="/store">Menu</Link>
 </li>
 <li className="nav-item nav-builder">
   <Link className="nav-link " to="/builder">Builder</Link>
 </li>
 <li className="nav-item nav-cart">
-  <Link className="nav-link " to="/cart">Cart</Link>
+  <Link className="nav-link " to="/cart">Cart({this.props.carts.cart.length+this.props.carts.customcart.length})</Link>
 </li>
 
 
@@ -161,7 +161,8 @@ function myFunction() {
 const mapstate = (state) => {
   return {
     login : state.auth,
-    ui : state.ui
+    ui : state.ui,
+    carts : state.store
   }
 }
 

@@ -10,11 +10,13 @@ const item = (props) => {
   }
   return (
     <div className='item'>
-      <div>{props.name}</div>
-      <img src={pic} className='itempic' alt=''/>
-      <div>{props.ingredients}</div>
-      <div>{props.price}</div>
-      <button onClick={() => props.addtocart(props.code)} >Add to cart</button>
+      <div style={{background:`url(${pic})`, backgroundSize:'cover', backgroundPosition:'center'}} className='itempic'></div>
+      <div><strong>{props.name}</strong></div>
+      <div className='storeingred'>{props.ingredients}</div>
+      <div className='floating'>
+      <div><i className="fas fa-rupee-sign"> </i> <strong>{props.price}</strong></div>
+      <button onClick={() => props.addtocart(props.code)} >Add to cart <i className="fas fa-shopping-cart"></i></button>
+      </div>
     </div>
   )
 }
